@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Página web con hash</title>
+    <link rel="stylesheet" href="css/estiloYO.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/forge/0.10.0/forge.min.js"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <img src="imagenes/UACJ.png" width="180px" style="float: left; margin-left: 20px; margin-top: 10px">
+            <h1 id="Comienzo" style="font-family: 'Carter One', cursive;">Página web con hash</h1>
+        </header>
+        <section id="contenido">
+            <div class="esquina"></div>
+            <div id="Interior">
+
+                <div class="division" style="margin-top: 0px"></div>
+                <div id="Formulario">
+                    <fieldset>
+                        <legend>Conseguir claves publicas y privadas</legend>
+                        <form>
+                            Resultado publico:<br>
+                            <div id="RespuestaPubli"><br></div><br><br>
+                            Resultado privado:<br>
+                            <div id="RespuestaPriv"><br></div><br><br>
+
+                            <input id="btnCod" type="button" value="Generar clave publica y privada" onclick="genClave()">
+                            <input type="button" value="Eliminar claves" onclick="borrarClaves()">
+                        </form>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Codificar mensaje</legend>
+                        <form>
+                            Clave:
+                            <input type="text" name="Clave1" id="ClaveTxt1">
+                            <div style="font-size:10px">
+                                Clave de encriptacion<br>
+
+                            </div>
+                            Mensaje:
+                            <textarea name="Mensaje1" id="MensajeTxt1" style="width:500px; height:100px"></textarea>
+                            <div style="font-size:10px">
+                                Mensaje a encriptar<br>
+                            </div>
+                            Resultado:
+                            <div id="Respuesta1" style="width:80%; height:auto"><br></div>
+
+                            <input id="btnCod" type="button" value="Codificar" onclick="codificar()">
+                            <input id="btnCod" type="button" value="CodificarRSA" onclick="codificarRSA()">
+                            <input type="reset" value="Eliminar progreso">
+                        </form>
+                    </fieldset>
+                    <br><br>
+                    <fieldset>
+                        <legend>Decodificar mensaje</legend>
+                        <form>
+                            Clave:
+                            <input type="text" name="Clave2" id="ClaveTxt2">
+                            <div style="font-size:10px">
+                                Clave de encriptacion<br>
+                            </div>
+                            Mensaje:
+                            <textarea name="Mensaje2" id="MensajeTxt2" style="width:500px; height:100px"></textarea>
+                            <div style="font-size:10px">
+                                Mensaje a encriptar<br>
+                            </div>
+                            Resultado:
+                            <div id="Respuesta2"><br></div>
+
+                            <input id="btnDes" type="button" value="Decodificar" onclick="decodificar()">
+                            <input id="btnDes" type="button" value="DecodificarRSA" onclick="decodificarRSA()">
+                            <input type="reset" value="Eliminar progreso">
+                        </form>
+                    </fieldset>
+                    <div class="division"></div>
+                </div>
+            </div>
+            <div class="esquina"></div>
+        </section>
+        <footer>
+            <ul>
+                <br>
+                <br>
+                <li>
+                    <a href="#Comienzo"><i>Haz click aqui para ir al inicio</i></a>
+                </li>
+            </ul>
+            <section id="redes">
+                <p>Búscanos en nuestras redes sociales</p>
+                <a href="#"><i class="fa fa-facebook" style="font-size: 36px"></i></a>
+                <a href="#"><i class="fa fa-snapchat" style="font-size:36px"></i></a>
+                <a href="#"><i class="fa fa-tumblr" style="font-size:36px"></i></a>
+                <a href="#"><i class="fa fa-twitter" style="font-size:36px"></i></a>
+                <a href="#"><i class="fa fa-whatsapp" style="font-size:36px"></i></a>
+                <a href="#"><i class="fa fa-instagram" style="font-size:36px"></i></a>
+            </section>
+
+            <p class="design">Diseñado por Christian Kortright Farías</p>
+            <p class="design">Teléfono celular (555) 555-5555</p>
+
+        </footer>
+    </main>
+
+    <script>
+        let activadorNumero1 = document.getElementById("NumeroTxt1")
+        let activadorNumero2 = document.getElementById("NumeroTxt2")
+        let activadorPubli = document.getElementById("RespuestaPubli")
+        let activadorPriv = document.getElementById("RespuestaPriv")
+
+        let activadorClave1 = document.getElementById("ClaveTxt1")
+        let activadorClave2 = document.getElementById("ClaveTxt2")
+        let activadorMensaje1 = document.getElementById("MensajeTxt1")
+        let activadorMensaje2 = document.getElementById("MensajeTxt2")
+        let activadorRespuesta1 = document.getElementById("Respuesta1")
+        let activadorRespuesta2 = document.getElementById("Respuesta2")
+
+
+        const { pki } = forge;
+
+        function codificar() {
+            var cifrar = CryptoJS.AES.encrypt(activadorMensaje1.value, activadorClave1.value);
+            activadorRespuesta1.innerHTML = "\n" + cifrar.toString() + "\n";
+        }
+
+        function decodificar() {
+            var decifrar = CryptoJS.AES.decrypt(activadorMensaje2.value, activadorClave2.value);
+            activadorRespuesta2.innerHTML = "\n" + decifrar.toString(CryptoJS.enc.Utf8) + "\n";
+        }
+
+        function codificarRSA() {
+            const publicKey = pki.publicKeyFromPem(activadorClave1.value);
+            const encrypted = publicKey.encrypt(activadorMensaje1.value, 'RSA-OAEP');
+            const encryptedBase64 = forge.util.encode64(encrypted);
+            activadorRespuesta1.innerHTML = "\n" + encryptedBase64 + "\n";
+        }
+
+        function decodificarRSA() {
+            const privateKey = pki.privateKeyFromPem(activadorClave2.value);
+            const decrypted = privateKey.decrypt(forge.util.decode64(activadorMensaje2.value), 'RSA-OAEP');
+            activadorRespuesta2.innerHTML = "\n" + decrypted + "\n";
+        }
+        
+
+        const message = "Este es un mensaje secreto.";
+
+        // Encriptar el mensaje usando la clave pública
+        //const encrypted = keypair.publicKey.encrypt(message, 'RSA-OAEP');
+        //const encryptedBase64 = forge.util.encode64(encrypted);
+        //console.log("Mensaje encriptado (Base64):", encryptedBase64);
+
+        // Desencriptar el mensaje usando la clave privada
+        //const decrypted = keypair.privateKey.decrypt(forge.util.decode64(encryptedBase64), 'RSA-OAEP');
+        //console.log("Mensaje desencriptado:", decrypted);
+
+        function genClave() {
+            const keypair = pki.rsa.generateKeyPair(2048);
+            const publicKey = pki.publicKeyToPem(keypair.publicKey);
+            const privateKey = pki.privateKeyToPem(keypair.privateKey);
+            activadorPubli.innerHTML = publicKey;
+            activadorPriv.innerHTML = privateKey;
+        }
+
+        function borrarClaves() {
+            activadorPubli.innerHTML = "";
+            activadorPriv.innerHTML = "";
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+*{
+    font-family: sans-serif;
+}
+main {
+    background-color: skyblue;
+    width: 1280px;
+    height: 1662px;
+    margin-left: auto;
+    margin-right: auto;
+}
+header{
+    width: 1280px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: top;
+    background-color: lime;
+    box-shadow: #3d8427 0px -70px 100px inset;
+}
+header h1{
+    font-size: 66px;
+    width: 680px;
+    float: left;
+    margin-left: 80px
+}
+#Comienzo{
+    padding-top: 10px;
+    color: whitesmoke;
+    text-shadow: black 10px 5px;
+    text-align: center;
+}
+nav{
+    width: 1280px;
+    height: 40px;
+    background-color: lime;
+    box-shadow: #3d8427 0px -120px 200px inset;
+    display: flex;
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+    z-index: 3;  
+}
+nav a{
+    color: whitesmoke;
+    text-decoration: none;
+    padding-left: 26px;
+    padding-right: 26px;
+    padding-top: 11px;
+    font-size: 18px;
+}
+nav a:hover{
+    background-color: #153a0a;
+}
+#contenido {
+    width: 1280px;
+    background-image: url(../imagenes/);
+    overflow: hidden;
+}
+#contenido a{
+    text-decoration: none;
+    color: blue;
+}
+#contenido a:hover{
+    text-decoration: underline;
+}
+.esquina {
+    width: 20px;
+    height: 1301px;
+    background-color: #153a0a;
+    float: left; 
+}
+#Interior {
+    width: 1240px;
+    float: left;
+    background-color: white;
+    overflow: hidden;
+}
+
+.division {
+    width: 1240px;
+    height: 30px;
+    background-color: #153a0a;
+}
+
+#titulo {
+    width: 200px;
+    height: 70px;
+    padding: 10px;
+    background-color: green;
+    text-align: center;
+    margin: 20px;
+    margin-left: 510px;
+    border-radius: 50px;
+    color: whitesmoke;
+}
+#titulo2 {
+    width: 200px;
+    height: 70px;
+    padding: 10px;
+    background-color: green;
+    text-align: center;
+    margin: 20px;
+    margin-left: 510px;
+    color: whitesmoke;
+}
+#titulo3 {
+    width: 200px;
+    height: 70px;
+    padding: 10px;
+    background-color: green;
+    text-align: center;
+    margin: 20px;
+    margin-left: 440px;
+    float: left;
+    color: whitesmoke;
+}
+#titulo3antes {
+    width: 0;
+    height: 0;
+    border-top: 45px solid transparent;
+    border-right: 70px solid green;
+    border-bottom: 45px solid transparent;
+    position: relative;
+    top: 20px;
+    float: left
+}
+#titulo3despues {
+    width: 0;
+    height: 0;
+    border-top: 45px solid transparent;
+    border-left: 70px solid green;
+    border-bottom: 45px solid transparent;
+    position: relative;
+    top: 20px;
+    float: left
+}
+.TextoGeneral{
+    margin: 20px;
+}
+
+.circulo {
+    width: 230px;
+    height: 230px;
+    border-radius: 115px;
+    float: left;
+    filter: drop-shadow(7px 7px 7px black);
+    color: rgba(0,0,0,0);
+    text-align: center;
+    background-size: cover;
+}
+.circulo:nth-child(odd) {
+    position: relative;
+    top: 50px;
+}
+.circulo p{
+    margin: 40px;
+}
+.circulo:hover {
+    filter: invert(5%);
+    color: rgba(255,255,255,1);
+    text-shadow: black 2px 2px 2px
+}
+
+.cuadrado {
+    width: 230px;
+    height: 200px;
+    background-color: aqua;
+    float: left;
+    filter: drop-shadow(7px 7px 7px black);
+    color: rgba(0,0,0,0);
+    text-align: center;
+    z-index: 2;
+    background-size: cover;
+}
+.cuadrado:nth-child(odd) {
+    position: relative;
+    top: 50px;
+    z-index: 1;
+}
+.cuadrado p{
+    margin: 30px;
+}
+.cuadrado:hover {
+    filter: invert(5%);
+    color: rgba(255,255,255,1);
+    text-shadow: black 2px 2px 2px
+}
+
+.rombo {
+    width: 180px;
+    height: 180px;
+    background-color: aqua;
+    float: left;
+    filter: drop-shadow(7px -7px 7px black);
+    color: rgba(0,0,0,0);
+    text-align: center;
+    margin: 20px;
+    transform: rotate(45deg);
+    background-size: cover;
+}
+
+.rombo:nth-child(even) {
+    position: relative;
+    top: 240px;
+}
+.rombo p{
+    margin: 10px;
+    transform: rotate(-45deg);
+    position: relative;
+    left: -2px;
+    top: 25px
+}
+.rombo:hover {
+    filter: invert(5%);
+    color: rgba(255,255,255,1);
+    text-shadow: black 2px 2px 2px
+}
+
+#pointer {
+    width: 1100px;
+    height: 40px;
+    position: relative;
+    background: green;
+    position: relative;
+    top: 200px;
+    left: 60px
+}
+#pointer:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 20px solid white;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+}
+#pointer:before {
+    content: "";
+    position: absolute;
+    right: -20px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 20px solid green;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+}
+
+#Presente{
+    margin-top: 330px;
+}
+#Futuro{
+    margin-top: 330px;
+}
+
+
+.animacion1 {
+    
+    animation-name: animation1;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: .1s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+@keyframes animation1 {
+    0% {
+        position: relative;
+        left: 0;
+    }
+    25% {
+        position: relative;
+        left: -50px;
+    }
+    75% {
+        position: relative;
+        left: 50px;
+    }
+    100%{
+        position: relative;
+        left: 0;
+    }
+}
+.animacion2 {
+    
+    animation-name: animation2;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: .1s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+@keyframes animation2 {
+    0% {
+        position: relative;
+        left: 440px;
+    }
+    25% {
+        position: relative;
+        left: 390px;
+    }
+    75% {
+        position: relative;
+        left: 490px;
+    }
+    100%{
+        position: relative;
+        left: 440px;
+    }
+}
+.animacion3 {
+    
+    animation-name: animation3;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: .1s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+@keyframes animation3 {
+    0% {
+        position: relative;
+        left: -20px;
+    }
+    25% {
+        position: relative;
+        left: -70px;
+    }
+    75% {
+        position: relative;
+        left: 30px;
+    }
+    100%{
+        position: relative;
+        left: -20px;
+    }
+}
+
+
+footer{
+    width: 1220px;
+    height: 150px;
+    background-color: #3d8427;
+    float: left;
+    padding: 30px;
+    box-shadow: #153a0a 0px -20px 20px inset;
+}
+footer a{
+    color: whitesmoke;
+    text-decoration: none;
+}
+footer a:hover{
+    text-decoration: underline;
+}
+footer ul li a: hover{
+    text-decoration: underline;
+}
+footer ul{
+    margin: 0px;
+    padding: 0px;
+    float: left;
+}
+footer ul li{
+    list-style: none;
+}
+#redes{
+    width:500px;
+    height: 104px;
+    float: left;
+    text-align: center;
+    color: whitesmoke;
+    margin-left: 70px
+}
+.design{
+    float: right;
+    color: whitesmoke;
+}
+.fa{
+    margin-left: 15px;
+    padding: 15px;
+}
+.fa:hover{
+    transform: translate(0px,-10px);
+    transition: .5s;
+}
